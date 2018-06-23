@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands>
+  <command name="place">
+    <verbs>
+        <verb name="put" />
+        <verb name="place" />
+    </verbs>
+  </command>
+  <command name="bring">
+    <verbs>
+        <verb name="bring" />
+        <verb name="give" />
+    </verbs>
+  </command>
+  <command name="deliver">
+    <verbs>
+        <verb name="bring" />
+        <verb name="give" />
+        <verb name="deliver" />
+    </verbs>
+  </command>
+  <command name="take">
+    <verbs>
+        <verb name="get" />
+        <verb name="grasp" />
+        <verb name="take" />
+        <verb name="pick" />
+    </verbs>
+  </command>
+  <command name="answer">
+    <verbs>
+        <verb name="answer" />
+    </verbs>
+  </command>
+  <command name="speak">
+    <verbs>
+        <verb name="tell" />
+        <verb name="say" />
+		<verb name="introduce" />
+    </verbs>
+  </command>
+  <command name="go">
+    <verbs>
+        <verb name="go" />
+        <verb name="navigate" />
+        <verb name="enter" />
+		<verb name="move" />
+    </verbs>
+  </command>
+  <command name="find">
+    <verbs>
+        <verb name="find" />
+        <verb name="locate" />
+        <verb name="look" />
+    </verbs>
+  </command>
+  <command name="guide">
+    <verbs>
+        <verb name="guide" />
+        <verb name="escort" />
+        <verb name="take" />
+        <verb name="lead" />
+        <verb name="accompany" />
+    </verbs>
+  </command>
+  <command name="follow">
+    <verbs>
+        <verb name="follow" />
+        <verb name="go" />
+        <verb name="come" />
+    </verbs>
+  </command>
+  <command name="meet">
+    <verbs>
+        <verb name="meet" />
+    </verbs>
+  </command>
+  <command name="leave">
+    <verbs>
+        <verb name="leave" />
+    </verbs>
+  </command>
+</commands>
