@@ -339,5 +339,5 @@ def morphy(form, pos='noun', collect=0):
 def _test(reset=0):
     import doctest, wntools
     if reset:
-        doctest.master = None # This keeps doctest from complaining after a reload.
+        doctest.main = None # This keeps doctest from complaining after a reload.
     return doctest.testmod(wntools)

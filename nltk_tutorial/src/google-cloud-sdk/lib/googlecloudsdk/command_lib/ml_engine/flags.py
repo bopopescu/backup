@@ -52,7 +52,7 @@ trainingInput:format='table[box,title="Training Input Summary"](
   pythonModule,
   parameterServerType:optional,
   parameterServerCount:optional,
-  masterType:optional,
+  mainType:optional,
   workerType:optional,
   workerCount:optional,
   jobDir:optional

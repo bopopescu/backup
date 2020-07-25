@@ -43,7 +43,7 @@ _WORKFLOW_DIR = '../workflows/image_import/'
 _IMPORT_WORKFLOW = _WORKFLOW_DIR + 'import_image.wf.json'
 _IMPORT_AND_TRANSLATE_WORKFLOW = _WORKFLOW_DIR + 'import_and_translate.wf.json'
 _WORKFLOWS_URL = ('https://github.com/GoogleCloudPlatform/compute-image-tools/'
-                  'tree/master/daisy_workflows/image_import')
+                  'tree/main/daisy_workflows/image_import')
 
 
 def _IsLocalFile(file_name):

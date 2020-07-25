@@ -377,8 +377,8 @@ plural_categories = {
         "ditto"      , "ghetto"     , "lingo"        , "octavo"     , "stylo"
         ],
     "general-generals": [
-        "Adjutant"   , "Brigadier"  , "Lieutenant"   , "Major"      , "Quartermaster", 
-        "adjutant"   , "brigadier"  , "lieutenant"   , "major"      , "quartermaster"
+        "Adjutant"   , "Brigadier"  , "Lieutenant"   , "Major"      , "Quartermain", 
+        "adjutant"   , "brigadier"  , "lieutenant"   , "major"      , "quartermain"
         ]
 }
 
@@ -401,7 +401,7 @@ def pluralize(word, pos=NOUN, custom={}, classical=True):
         else:
             return w + "'s"
     # Recurse compound words
-    # (e.g., Postmasters General, mothers-in-law, Roman deities).    
+    # (e.g., Postmains General, mothers-in-law, Roman deities).    
     w = word.replace("-", " ").split(" ")
     if len(w) > 1:
         if w[1] == "general" or \

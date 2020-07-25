@@ -176,7 +176,7 @@ class Update(base.UpdateCommand):
     _AddMutuallyExclusiveArgs(group, base.ReleaseTrack.GA)
     flags.AddNodeLocationsFlag(group_locations)
     flags.AddClusterAutoscalingFlags(parser, group)
-    flags.AddMasterAuthorizedNetworksFlags(parser, group)
+    flags.AddMainAuthorizedNetworksFlags(parser, group)
     flags.AddEnableLegacyAuthorizationFlag(group)
     flags.AddStartIpRotationFlag(group)
     flags.AddCompleteIpRotationFlag(group)
@@ -221,32 +221,32 @@ class Update(base.UpdateCommand):
 
     if args.username is not None or args.enable_basic_auth is not None:
       flags.MungeBasicAuthFlags(args)
-      options = api_adapter.SetMasterAuthOptions(
-          action=api_adapter.SetMasterAuthOptions.SET_USERNAME,
+      options = api_adapter.SetMainAuthOptions(
+          action=api_adapter.SetMainAuthOptions.SET_USERNAME,
           username=args.username,
           password=args.password)
 
       try:
-        op_ref = adapter.SetMasterAuth(cluster_ref, options)
+        op_ref = adapter.SetMainAuth(cluster_ref, options)
       except apitools_exceptions.HttpError as error:
         raise exceptions.HttpException(error, util.HTTP_ERROR_FORMAT)
     elif (args.generate_password or args.set_password or
           args.password is not None):
       if args.generate_password:
         password = ''
-        options = api_adapter.SetMasterAuthOptions(
-            action=api_adapter.SetMasterAuthOptions.GENERATE_PASSWORD,
+        options = api_adapter.SetMainAuthOptions(
+            action=api_adapter.SetMainAuthOptions.GENERATE_PASSWORD,
             password=password)
       else:
         password = args.password
         if args.password is None:
           password = raw_input('Please enter the new password:')
-        options = api_adapter.SetMasterAuthOptions(
-            action=api_adapter.SetMasterAuthOptions.SET_PASSWORD,
+        options = api_adapter.SetMainAuthOptions(
+            action=api_adapter.SetMainAuthOptions.SET_PASSWORD,
             password=password)
 
       try:
-        op_ref = adapter.SetMasterAuth(cluster_ref, options)
+        op_ref = adapter.SetMainAuth(cluster_ref, options)
         del password
         del options
       except apitools_exceptions.HttpError as error:
@@ -270,7 +270,7 @@ class Update(base.UpdateCommand):
     elif args.start_ip_rotation:
       console_io.PromptContinue(
           message='This will start an IP Rotation on cluster [{name}]. The '
-          'master will be updated to serve on a new IP address in addition to '
+          'main will be updated to serve on a new IP address in addition to '
           'the current IP address. Kubernetes Engine will then recreate all '
           'nodes ({num_nodes} nodes) to point to the new IP address. This '
           'operation is long-running and will block other operations on the '
@@ -284,7 +284,7 @@ class Update(base.UpdateCommand):
     elif args.complete_ip_rotation:
       console_io.PromptContinue(
           message='This will complete the in-progress IP Rotation on cluster '
-          '[{name}]. The master will be updated to stop serving on the old IP '
+          '[{name}]. The main will be updated to stop serving on the old IP '
           'address and only serve on the new IP address. Make sure all API '
           'clients have been updated to communicate with the new IP address '
           '(e.g. by running `gcloud container clusters get-credentials '
@@ -358,7 +358,7 @@ class UpdateBeta(Update):
     group_locations = group.add_mutually_exclusive_group()
     _AddAdditionalZonesArg(group_locations, deprecated=True)
     flags.AddNodeLocationsFlag(group_locations)
-    flags.AddMasterAuthorizedNetworksFlags(parser, group)
+    flags.AddMainAuthorizedNetworksFlags(parser, group)
     flags.AddEnableLegacyAuthorizationFlag(group)
     flags.AddStartIpRotationFlag(group)
     flags.AddCompleteIpRotationFlag(group)
@@ -388,7 +388,7 @@ class UpdateAlpha(Update):
     group_locations = group.add_mutually_exclusive_group()
     _AddAdditionalZonesArg(group_locations, deprecated=True)
     flags.AddNodeLocationsFlag(group_locations)
-    flags.AddMasterAuthorizedNetworksFlags(parser, group)
+    flags.AddMainAuthorizedNetworksFlags(parser, group)
     flags.AddEnableLegacyAuthorizationFlag(group)
     flags.AddStartIpRotationFlag(group)
     flags.AddCompleteIpRotationFlag(group)

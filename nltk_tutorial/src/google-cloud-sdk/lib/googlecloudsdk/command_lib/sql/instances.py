@@ -296,12 +296,12 @@ class _BaseInstances(object):
 
     instance_resource.region = reducers.Region(args.region, args.gce_zone)
     instance_resource.databaseVersion = args.database_version
-    instance_resource.masterInstanceName = args.master_instance_name
+    instance_resource.mainInstanceName = args.main_instance_name
 
     instance_resource.settings = cls._ConstructCreateSettingsFromArgs(
         sql_messages, args, original, release_track)
 
-    if args.master_instance_name:
+    if args.main_instance_name:
       replication = 'ASYNCHRONOUS'
       if args.replica_type == 'FAILOVER':
         instance_resource.replicaConfiguration = (

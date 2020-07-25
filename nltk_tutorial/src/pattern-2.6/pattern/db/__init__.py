@@ -429,7 +429,7 @@ class Database(object):
         self.connect(unicode)
         # Table names are available in the Database.tables dictionary,
         # table objects as attributes (e.g. Database.table_name).
-        q = self.type==SQLITE and "select name from sqlite_master where type='table';" or "show tables;"
+        q = self.type==SQLITE and "select name from sqlite_main where type='table';" or "show tables;"
         self.tables = Database.Tables(self)
         for name, in self.execute(q):
             if not name.startswith(("sqlite_",)):
